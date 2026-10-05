@@ -11,7 +11,10 @@ def gelu(x: list) -> np.ndarray:
         else:
             val = float(val)
             return (val/2)*(1 + math.erf(val/(2**0.5)))
-    if isinstance(x, int) or isinstance(x, float):
-        return  np.asarray(do_gelu(x), dtype=float)
-    gelud_list = np.asarray([do_gelu(val) for val in x], dtype=float)
-    return gelud_list
+    # if isinstance(x, int) or isinstance(x, float):
+    #     return  np.asarray(do_gelu(x), dtype=float)
+    # gelud_list = np.asarray([do_gelu(val) for val in x], dtype=float)
+    # return gelud_list
+    x = np.asarray(x, dtype=float)
+    
+    return np.vectorize(do_gelu)(x)
