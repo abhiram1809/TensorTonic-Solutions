@@ -8,16 +8,13 @@ def impute_missing(X: list, strategy: str = "mean") -> np.ndarray:
     X = np.asarray(X, dtype=float)
     X = X.T
     def filter_nan(lis):
-        print(lis)
         filtere = lis.copy()
         array = []
         for ele in filtere:
-            print (ele)
             if np.isnan(ele):
                 continue
             else:
                 array.append(ele)
-        print(array)
         if not array:
             array = np.zeros(len(lis))
         return array
@@ -25,7 +22,6 @@ def impute_missing(X: list, strategy: str = "mean") -> np.ndarray:
     if isinstance(X[0], np.ndarray):
         for row in X:
             filtered = filter_nan(row)
-            print(filtered)
             if strategy=="mean":
                 mean = np.mean(filtered)
                 row[np.isnan(row)] = mean
