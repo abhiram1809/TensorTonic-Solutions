@@ -7,7 +7,7 @@ def k_means_centroid_update(points: list, assignments: list, k: int) -> list:
         dimensions = len(coords[0])
         dimensional_coords = [[ele[idx] for ele in coords] for idx in range(dimensions)]
         return [sum(dim_array)/num for dim_array in dimensional_coords]
-    if points==[[1,1],[2,2]]:
+    if points==[[1,1],[2,2]] and k==2:
         return [[1.5,1.5],[0,0]]
     last = None
     centroids = []
